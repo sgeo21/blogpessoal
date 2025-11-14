@@ -33,7 +33,7 @@ const navigate = useNavigate();
   }, [usuario])
   
   function retornar(){
-    navigate("/login");
+    navigate("/");
   }
    
 
@@ -169,11 +169,8 @@ const navigate = useNavigate();
                         color="#fffff"
                         size={24}
                     />
-
                     :
-                    
                      <span>Cadastrar</span>
-                    
                     } 
                     
             </button>

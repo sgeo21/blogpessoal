@@ -12,7 +12,7 @@ function App() {
   return (
     // O fragment<> </> pode ser utilizado pois para o return precisa aglomerar.
     <>
-    {/* precisa fazer a importação da pagina que aparece ali encima*/}
+    {/* precisa fazer a importação da pagina que aparece ali encima */}
     <BrowserRouter> {/* importado após adição de npm install react-router-dom*/}
 
       <Navbar />

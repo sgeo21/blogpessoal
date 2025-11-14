@@ -1,9 +1,22 @@
 // configurações do cabeçalho 
 
-import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
 
 // para deixar fixo na aba superior: fixed top-0 left-0
 function Navbar() {
+
+  // para sair do sistema
+  const navigate= useNavigate();
+  const { handleLogout } = useContext(AuthContext); 
+  // desenvolver fução
+  function logout(){
+    handleLogout(); //faz o logout
+    alert('O ususário foi desconectado com sucesso!'); // mensagem de sucesso
+    navigate('/') //redirecionar pagina inicial (login)
+  }
+
   return (
     <div
      className="bg-indigo-900 w-full flex justify-center py-4 text-white ">
@@ -15,7 +28,7 @@ function Navbar() {
                 Temas
                 Cadastrar tema
                 Perfil
-                Sair
+                <Link to='' onClick={logout} className="hover:underline"> Sair </Link> 
             </div>
         </div>        
     </div>

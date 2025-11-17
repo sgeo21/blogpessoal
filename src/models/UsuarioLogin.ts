@@ -1,4 +1,5 @@
 export default interface UsuarioLogin{
+    tema: string | number | readonly string[] | undefined;
     id: number ;
     nome: string;
     usuario: string; 

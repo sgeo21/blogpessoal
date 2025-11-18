@@ -18,11 +18,11 @@ function DeletarTema() {
 
     const { id } = useParams<{ id: string }>()
 
-    async function buscarTemaPorId(id: string) {
+    async function buscarTemaPorId() {
         try {
             await buscar(`/temas/${id}`, setTema, {
                 headers: {
-                    'Authorization': token
+                    Authorization : token
                 }
             })
         } catch (error: any) {
@@ -33,17 +33,21 @@ function DeletarTema() {
     }
 
     useEffect(() => {
-        if (token === '') {
-            alert('Você precisa estar logado')
-            navigate('/')
+        if (id !== undefined) {
+            buscarTemaPorId()
+        }
+    }, [id])
+
+    useEffect(() => {
+        if (token === "") {
+            alert('Você precisa estar logado!')
+            navigate("/")
         }
     }, [token])
 
-    useEffect(() => {
-        if (id !== undefined) {
-            buscarTemaPorId(id)
-        }
-    }, [id])
+    function retornar() {
+		navigate("/temas")
+	}
 
     async function deletarTema() {
         setIsLoading(true)
@@ -51,11 +55,11 @@ function DeletarTema() {
         try {
             await deletar(`/temas/${id}`, {
                 headers: {
-                    'Authorization': token
+                    Authorization : token
                 }
             })
 
-            alert('Tema deletado com sucesso')
+            alert('Tema deletado com sucesso!')
 
         } catch (error: any) {
             if (error.toString().includes('401')) {
@@ -65,13 +69,11 @@ function DeletarTema() {
             }
         }
 
-        setIsLoading(false)
-        retornar()
+        setIsLoading(false);
+        retornar();
     }
 
-    function retornar() {
-        navigate("/temas")
-    }
+   
     
     return (
         <div className='container w-1/3 mx-auto'>
@@ -87,22 +89,25 @@ function DeletarTema() {
                 <div className="flex">
                     <button 
                         className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
-                        onClick={retornar}>
+                        onClick={retornar}    
+                    >
                         Não
                     </button>
                     <button 
                         className='w-full text-slate-100 bg-indigo-400 
                                    hover:bg-indigo-600 flex items-center justify-center'
-                                   onClick={deletarTema}>
-
-                        { isLoading ? 
-                            <ClipLoader 
-                                color="#ffffff" 
-                                size={24}
-                            /> : 
-                            <span>Sim</span>
+                            onClick={deletarTema}
+                        >
+                        {
+                            isLoading ?
+                                <ClipLoader 
+                                    color="#ffffff"
+                                    size={24}
+                                />
+                            :
+                            <span>Sim</span>                        
                         }
-
+                        
                     </button>
                 </div>
             </div>

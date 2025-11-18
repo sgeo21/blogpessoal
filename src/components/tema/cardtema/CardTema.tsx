@@ -3,6 +3,7 @@
 import { Link } from 'react-router-dom'
 import type Tema from '../../../models/Temas'
 
+
 interface CardTemaProps{
     tema: Tema
 }
@@ -19,7 +20,7 @@ function CardTema({ tema }: CardTemaProps) {
                 Tema {/* Texto fixo — futuramente pode receber props */}
             </header>
             {/* Área onde vai a descrição do tema */}
-            <p className='p-8 text-3xl bg-slate-200 h-full'>Descrição</p>
+            <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
 
              {/* Container dos botões de ação: editar e deletar */}
              {/* 
@@ -35,9 +36,9 @@ function CardTema({ tema }: CardTemaProps) {
                     <button>Editar</button>
                 </Link>
                 {/* Link para rota de exclusão */}
-                {/* 
-                    - hover:bg-red-700 → cor mais escura ao passar o mouse */}
-                <Link to={`/deletartema/${tema.id}`}  className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
+                {/* hover:bg-red-700 → cor mais escura ao passar o mouse */}
+                <Link to={`/deletartema/${tema.id}`} 
+                    className='text-slate-100 bg-red-400 hover:bg-red-700 w-full 
                     flex items-center justify-center'>
                     <button>Deletar</button>
                 </Link>

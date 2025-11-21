@@ -1,17 +1,18 @@
 import { createContext, useState, type ReactNode } from "react"
-import type UsuarioLogin from "../models/UsuarioLogin"
+
 import { login } from "../services/Service"
+import type UsuarioLogin from "../models/UsuarioLogin"
 
 //aqui cria o lagout, 
-interface AuthContextProps{
-    usuario:UsuarioLogin
+interface AuthContextProps {
+    usuario: UsuarioLogin
     handleLogout(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
 }
 
 // outra interface - qualquer componete react pode utilizar este atravez do ReactNode
-interface AuthProviderProps{
+interface AuthProviderProps {
     children: ReactNode
 }
 
@@ -19,16 +20,16 @@ interface AuthProviderProps{
 export const AuthContext = createContext({} as AuthContextProps)
 
 //cria o provedor e recebe todos os componentes react, ou seja todos os arquix Tsx do meu projeto
-export function AuthProvider ({ children }: AuthProviderProps){
+export function AuthProvider({ children }: AuthProviderProps){
 
-    const [usuario, setUsuario ] = useState<UsuarioLogin>({
-        id:0,
-        nome:"",
+    const [usuario, setUsuario] = useState<UsuarioLogin>( {
+        id: 0,
+        nome: "",
         usuario: "",
-        senha: "",
+        senha:"",
         foto:"",
-        token: ""
-    });
+        token:""
+    })
 
     //inicializar o estado isLoading (exibir e ocultar o loading)
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -50,13 +51,13 @@ export function AuthProvider ({ children }: AuthProviderProps){
     // função para desconectar o usuário e limpar os dados
     function handleLogout() {
         setUsuario({
-              id:0,
-              nome:"",
-              usuario: "",
-              senha: "",
-              foto:"",
-              token: ""
-    });
+            id: 0,
+            nome: "",
+            usuario: "",
+            senha: "",
+            foto: "",
+            token: ""
+        })
     }
 // retorna dentro do contexto os 4 elementos selecionados, tudo o que estiver envolvido por esse provedor 
     return(

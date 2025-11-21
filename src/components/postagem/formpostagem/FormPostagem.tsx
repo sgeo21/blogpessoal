@@ -80,7 +80,7 @@ function FormPostagem() {
             tema: tema,
         })
     }, [tema])
-    // ---------- ATUALIZA CAMPOS ----------
+
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setPostagem({
             ...postagem,
@@ -140,6 +140,7 @@ function FormPostagem() {
     }
 
     const carregandoTema = tema.descricao === '';
+
 
     return (
         <div className="container flex flex-col mx-auto items-center">

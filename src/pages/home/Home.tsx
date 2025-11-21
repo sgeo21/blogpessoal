@@ -1,8 +1,11 @@
+import ListaPostagens from "../../components/postagem/listapostagens/ListaPostagens"
+import ModalPostagem from "../../components/postagem/modalpostagem/ModalPostagem"
 
 function Home() {
     // Aqui é onde entra a lógica em typscript
     
   return (
+    <>
     // Container
     <div
         // style={{
@@ -65,8 +68,8 @@ function Home() {
                         //     border: "2px solid white", 
                         //     padding: "0.5rem 1rem"
                         // }}
-                        className="rounded text-white border-white border-solid border-2 py-2 px-4"
-                     >Nova Postagem 
+                        className="rounded text-white py-2 px-4"
+                     > <ModalPostagem /> 
                     </div>
                 </div>
             </div>
@@ -88,9 +91,10 @@ function Home() {
                     className="w-2/3"
                 />
             </div>
-        
         </div>
     </div>
+     <ListaPostagens />
+    </>
   )
 }
 

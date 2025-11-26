@@ -12,6 +12,7 @@ import ListaPostagens from "./components/postagem/listapostagens/ListaPostagens"
 import FormPostagem from "./components/postagem/formpostagem/FormPostagem"
 import DeletarPostagem from "./components/postagem/deletarpostagem/DeletarPostagem"
 import Perfil from "./pages/perfil/Perfil"
+import { ToastContainer } from "react-toastify"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     <>
     {/* precisa fazer a importação da pagina */}
     <AuthProvider> {/* tudo que esta aqui dentro é de acesso de quem está*/}
+    <ToastContainer />  
     <BrowserRouter> {/* importado após adição de npm install react-router-dom*/}
       <Navbar />
       <div className="min-h-[80vh]">

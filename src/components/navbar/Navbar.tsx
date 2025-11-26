@@ -3,6 +3,7 @@
 import { useContext, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 // para deixar fixo na aba superior: fixed top-0 left-0
 function Navbar() {
@@ -15,7 +16,7 @@ function Navbar() {
   function logout(){
 
     handleLogout(); //faz o logout
-    alert('O ususário foi desconectado com sucesso!'); // mensagem de sucesso
+    ToastAlerta('O Usuário foi desconectado com sucesso!', 'sucesso') // mensagem de sucesso com 
     navigate('/') //redirecionar pagina inicial (login)
   }
   let component: ReactNode

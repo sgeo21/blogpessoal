@@ -5,6 +5,7 @@ import type Tema from "../../../models/Temas";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
 import { SyncLoader } from "react-spinners";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaTemas() {
 
@@ -20,7 +21,7 @@ function ListaTemas() {
     //solicitando a verificação de login
     useEffect(() => {
         if(token === ''){
-            alert('Você precisa estar logado!')
+            ToastAlerta('Você precisa estar logado!', 'info')
             navigate('/')
         }
     }, [token])

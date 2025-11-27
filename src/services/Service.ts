@@ -1,7 +1,7 @@
 import axios from "axios";
 // aqui configura o axios depois da instalação do mesmo
 const api = axios.create({
-    baseURL: "https://blogpessoal-spring-iqts.onrender.com"
+    baseURL: import.meta.env.VITE_API_URL
 })
 // aqui explica como será feito o cadastro do usuário
 // no setDados pega os dados gerados pelo banco de dados (id, token, etc)
